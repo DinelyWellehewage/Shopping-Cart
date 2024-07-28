@@ -20,9 +20,8 @@ const productsSlice = createSlice({
       //   return [action.payload, ...state];
       state.push(action.payload);
     },
-    removeProduct: (state, action: PayloadAction<string>) => {
-      return state.filter((product) => product.id !== action.payload);
-    },
+    removeProduct: (state, action: PayloadAction<string>) =>
+      state.filter((product) => product.id !== action.payload),
   },
 });
 export const { addProduct, removeProduct } = productsSlice.actions;

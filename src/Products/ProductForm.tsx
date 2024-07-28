@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Product } from "./products.slice";
-import { title } from "process";
 
 const ProductForm: React.FC = ({}) => {
-  const [{ title, price, id }, setProduct] = useState<Product>({
+  const [product, setProduct] = useState<Product>({
     id: "",
     title: "",
     price: 0,
@@ -18,10 +17,14 @@ const ProductForm: React.FC = ({}) => {
       return newValue;
     });
   };
+  const handleSubmit = (e: React.FormEvent) => {
+    console.log({ product });
+  };
+  const { title, price, id } = product;
   return (
     <>
       <h2>Add Game to the Store</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Game Title"
@@ -43,7 +46,7 @@ const ProductForm: React.FC = ({}) => {
           value={id}
           onChange={handleChange}
         />
-        <button>Add Price</button>
+        <button type="submit">Add Price</button>
       </form>
     </>
   );

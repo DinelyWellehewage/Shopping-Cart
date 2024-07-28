@@ -49,7 +49,7 @@ const ProductForm: React.FC = ({}) => {
           value={id}
           onChange={handleChange}
         />
-        <button type="submit">Add Price</button>
+        <button type="submit">Add Product</button>
       </form>
     </>
   );

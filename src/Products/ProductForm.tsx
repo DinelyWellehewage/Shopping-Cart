@@ -18,6 +18,7 @@ const ProductForm: React.FC = ({}) => {
     });
   };
   const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
     console.log({ product });
   };
   const { title, price, id } = product;

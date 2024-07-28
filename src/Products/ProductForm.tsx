@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Product } from "./products.slice";
+import { addProduct, Product } from "./products.slice";
+import { useAppDispatch } from "../store";
 
 const ProductForm: React.FC = ({}) => {
+  const dispatch = useAppDispatch();
   const [product, setProduct] = useState<Product>({
     id: "",
     title: "",
@@ -19,7 +21,7 @@ const ProductForm: React.FC = ({}) => {
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ product });
+    dispatch(addProduct(product));
   };
   const { title, price, id } = product;
   return (
